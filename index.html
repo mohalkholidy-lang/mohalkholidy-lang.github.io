@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#092147">
+    <meta name="author" content="عيادة الدكتور محمد غالب الخليدي">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="عيادة الدكتور محمد غالب الخليدي | طب وجراحة الفم وتجميل الأسنان">
+    <meta property="og:description" content="رعاية متكاملة لأسنانك في تعز – بيرباشا.">
+    <meta property="og:locale" content="ar_YE">
+    <title>عيادة الدكتور محمد غالب الخليدي | لطب وجراحة الفم وتجميل الأسنان</title>
+    <meta name="description" content="عيادة الدكتور محمد غالب الخليدي لطب وجراحة الفم وتجميل الأسنان في تعز – بيرباشا. تراكيب خزفية وزريكون، علاج الأسنان واللثة، تبييض الأسنان، وتقويم الأسنان.">
+    
+    <!-- خطوط جوجل (Cairo) للفخامة والوضوح -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة الأيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (إطار عمل التصميم) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- إعدادات Tailwind المخصصة (ألوان الهوية) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#092147', /* أزرق داكن (كحلي ملكي مستوحى من الشعار) */
+                        secondary: '#008B8B', /* تيفاني / فيروزي (مستوحى من الشعار) */
+                        gold: '#D4AF37', /* ذهبي فاخر */
+                        dark: '#0a0a0a',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'luxury': '0 10px 30px -10px rgba(9, 33, 71, 0.2)',
+                        'gold-glow': '0 0 20px rgba(212, 175, 55, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ========================================== -->
+    <!-- أكواد CSS المخصصة (بديل الملف المنفصل) -->
+    <!-- ========================================== -->
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #F8FAFC;
+        }
+
+        /* تنسيق الخطوط المتدرجة للعناوين */
+        .text-gradient-gold {
+            background: linear-gradient(90deg, #D4AF37, #FBD85D, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* خلفية القسم الرئيسي (Hero) */
+        .hero-section {
+            background-image: linear-gradient(to left, rgba(9, 33, 71, 0.95), rgba(9, 33, 71, 0.8)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* بطاقات الخدمات */
+        .service-card {
+            transition: all 0.4s ease;
+            border-bottom: 4px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: #008B8B;
+            box-shadow: 0 20px 40px rgba(0, 139, 139, 0.1);
+        }
+        .service-icon {
+            transition: all 0.4s ease;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background-color: #008B8B;
+            color: #ffffff;
+        }
+
+        /* وضع التعديل (Edit Mode) للمقالات */
+        .edit-mode .editable-content {
+            border: 2px dashed #008B8B;
+            background-color: rgba(0, 139, 139, 0.05);
+            padding: 8px;
+            border-radius: 8px;
+            cursor: text;
+            transition: all 0.3s;
+        }
+        .edit-mode .editable-content:hover {
+            background-color: rgba(0, 139, 139, 0.1);
+        }
+        .edit-mode .editable-image-wrapper::after {
+            content: 'انقر لتغيير رابط الصورة';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* حركات بسيطة */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-element {
+            animation: float 4s ease-in-out infinite;
+        }
+    
+        /* ===== إضافات الموقع الاحترافي ===== */
+        .glass-card { background: rgba(255,255,255,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+        .hero-badge { box-shadow: 0 12px 35px rgba(0,0,0,.18); }
+        .stat-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .stat-card:hover { transform: translateY(-6px); box-shadow: 0 18px 35px rgba(9,33,71,.12); }
+        .before-after-card { overflow:hidden; border-radius:1.5rem; }
+        .before-after-card img { transition: transform .6s ease; }
+        .before-after-card:hover img { transform: scale(1.05); }
+        .modal-backdrop { background: rgba(3,12,28,.72); backdrop-filter: blur(7px); }
+        .modal-panel { animation: modalIn .25s ease-out; }
+        @keyframes modalIn { from { opacity:0; transform: translateY(18px) scale(.98); } to { opacity:1; transform: translateY(0) scale(1); } }
+        .toast { animation: toastIn .3s ease-out; }
+        @keyframes toastIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+        .service-card .service-more { max-height:0; opacity:0; overflow:hidden; transition:.35s ease; }
+        .service-card:hover .service-more { max-height:90px; opacity:1; }
+        .review-stars { letter-spacing:2px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; }
+        }
+
+
+/* ===== واجهة افتتاحية Premium ===== */
+.premium-hero{
+    position:relative;
+    min-height:calc(100vh - 96px);
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:#06162f;
+    isolation:isolate;
+}
+.premium-hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(90deg,rgba(4,18,43,.98) 0%,rgba(4,18,43,.88) 42%,rgba(4,18,43,.42) 72%,rgba(4,18,43,.58) 100%),
+      url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=2200&q=88') center/cover no-repeat;
+    z-index:-3;
+}
+.premium-hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 82% 48%,rgba(0,183,183,.20),transparent 28%),
+      radial-gradient(circle at 15% 20%,rgba(212,175,55,.12),transparent 25%);
+    z-index:-2;
+    pointer-events:none;
+}
+.premium-grid{position:relative;z-index:2}
+.hero-eyebrow{
+    display:inline-flex;align-items:center;gap:.65rem;
+    padding:.55rem 1rem;border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;background:rgba(255,255,255,.08);
+    color:#fbd85d;font-weight:800;backdrop-filter:blur(12px);
+}
+.hero-title{
+    font-size:clamp(2.7rem,6vw,5.8rem);
+    line-height:1.08;font-weight:900;letter-spacing:-.03em;
+    text-shadow:0 12px 35px rgba(0,0,0,.32);
+}
+.hero-title .accent{color:#fbd85d}
+.hero-subtitle{
+    color:#dce8f7;font-size:clamp(1.05rem,1.8vw,1.35rem);
+    line-height:2;max-width:700px;
+}
+.hero-actions a{min-height:58px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
+.hero-trust span{
+    display:inline-flex;align-items:center;gap:.45rem;
+    padding:.55rem .85rem;border-radius:999px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.12);
+    color:#fff;font-size:.9rem;font-weight:700;
+    backdrop-filter:blur(10px);
+}
+.hero-side-card{
+    width:min(390px,100%);margin-inline:auto;
+    padding:1.4rem;border-radius:2rem;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.22);
+    box-shadow:0 30px 80px rgba(0,0,0,.28);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+.hero-logo-wrap{
+    width:132px;height:132px;margin:0 auto 1rem;
+    border-radius:2rem;background:rgba(255,255,255,.96);
+    display:flex;align-items:center;justify-content:center;
+    padding:1rem;box-shadow:0 18px 45px rgba(0,0,0,.2);
+}
+.hero-logo-wrap img{max-width:100%;max-height:100%;object-fit:contain}
+.hero-info-row{
+    display:flex;align-items:flex-start;gap:.8rem;
+    color:#fff;padding:.8rem 0;border-top:1px solid rgba(255,255,255,.12);
+}
+.hero-info-row i{color:#fbd85d;width:24px;text-align:center;margin-top:.25rem}
+.hero-mini-btn{
+    display:flex;align-items:center;justify-content:center;gap:.5rem;
+    border-radius:999px;padding:.85rem 1rem;font-weight:900;
+    transition:.25s ease;
+}
+.hero-mini-btn:hover{transform:translateY(-2px)}
+.hero-scroll{
+    position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);
+    color:rgba(255,255,255,.75);font-size:.8rem;z-index:3;
+}
+.hero-scroll i{display:block;text-align:center;margin-top:.35rem;animation:heroBounce 1.8s infinite}
+@keyframes heroBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@media (max-width:767px){
+    .premium-hero{min-height:auto;padding:4.2rem 0 5.5rem}
+    .premium-hero::before{
+      background:
+        linear-gradient(180deg,rgba(4,18,43,.95) 0%,rgba(4,18,43,.88) 54%,rgba(4,18,43,.96) 100%),
+        url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1400&q=82') center/cover no-repeat;
+    }
+    .hero-title{font-size:clamp(2.35rem,11vw,3.5rem)}
+    .hero-subtitle{font-size:1rem;line-height:1.9}
+    .hero-side-card{margin-top:1.8rem}
+    .hero-actions{display:grid;grid-template-columns:1fr;gap:.75rem}
+    .hero-actions a{width:100%}
+    .hero-scroll{display:none}
+}
+
+    </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"عيادة الدكتور محمد غالب الخليدي","telephone":"+967770398384","address":{"@type":"PostalAddress","addressLocality":"تعز","addressCountry":"YE","streetAddress":"بيرباشا، مدخل حارة الدار، جوار عيادة ومختبرات الدار"}}</script>
+</head>
+<body class="text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- ========================================== -->
+    <!-- هيكل الموقع HTML -->
+    <!-- ========================================== -->
+
+    <!-- شريط التنقل (Navbar) -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300 border-b border-gray-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- الشعار -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="flex items-center gap-3">
+                        <img class="h-20 w-auto transition-transform hover:scale-105 drop-shadow-md" src="1000223172.png" alt="شعار عيادة الدكتور محمد الخليدي" onerror="this.src='https://placehold.co/200x80/092147/D4AF37?text=Logo'">
+                    </a>
+                </div>
+
+                <!-- روابط سطح المكتب -->
+                <div class="hidden md:flex space-x-8 space-x-reverse items-center">
+                    <a href="#home" class="text-primary hover:text-secondary font-bold text-lg transition duration-300">الرئيسية</a>
+                    <a href="#about" class="text-gray-600 hover:text-secondary font-semibold text-lg transition duration-300">عن العيادة</a>
+                    <a href="#doctors" class="text-gray-600 hover:text-secondary font-semibold text-lg transition duration-300">الفريق</a>
+                    <a href="#services" class="text-gray-600 hover:text-secondary font-semibold text-lg transition duration-300">الخدمات</a>
+                    <a href="#articles" class="text-gray-600 hover:text-secondary font-semibold text-lg transition duration-300">مقالات ونصائح</a>
+                    <a href="#contact" class="text-gray-600 hover:text-secondary font-semibold text-lg transition duration-300">تواصل معنا</a>
+                </div>
+
+                <!-- أزرار الإجراء السريع -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="tel:770398384" class="text-primary font-bold text-xl flex items-center gap-2 hover:text-secondary transition" dir="ltr">
+                        <i class="fa-solid fa-phone text-gold"></i> 770398384
+                    </a>
+                    <a href="javascript:openBooking()" class="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-full font-bold transition-all duration-300 shadow-luxury border border-transparent hover:border-white/20">
+                        احجز موعدك
+                    </a>
+                </div>
+
+                <!-- زر قائمة الجوال -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-primary text-3xl focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- قائمة الجوال المنسدلة -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl">
+            <div class="px-4 pt-4 pb-8 space-y-3 text-center">
+                <a href="#home" class="block px-3 py-2 text-primary font-bold text-lg bg-gray-50 rounded-lg">الرئيسية</a>
+                <a href="#about" class="block px-3 py-2 text-gray-600 font-semibold text-lg hover:bg-gray-50 rounded-lg">عن العيادة</a>
+                <a href="#doctors" class="block px-3 py-2 text-gray-600 font-semibold text-lg hover:bg-gray-50 rounded-lg">الفريق</a>
+                <a href="#services" class="block px-3 py-2 text-gray-600 font-semibold text-lg hover:bg-gray-50 rounded-lg">الخدمات</a>
+                <a href="#articles" class="block px-3 py-2 text-gray-600 font-semibold text-lg hover:bg-gray-50 rounded-lg">مقالات ونصائح</a>
+                <a href="#gallery" class="block px-3 py-2 text-gray-600 font-semibold text-lg hover:bg-gray-50 rounded-lg">المعرض</a>
+                <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
+                    <a href="tel:770398384" class="block text-primary font-bold text-lg" dir="ltr">📞 770 398 384</a>
+                    <a href="tel:730266573" class="block text-primary font-bold text-lg" dir="ltr">📞 730 266 573</a>
+                    <a href="javascript:openBooking()" class="block bg-primary text-white font-bold text-lg rounded-full py-3 mx-4 shadow-md">احجز موعدك الآن</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- شريط الثقة المختصر -->
+    <div class="bg-primary pt-28 pb-3 relative z-40">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-white/90 font-bold text-sm md:text-base flex justify-center items-center gap-2">
+                <i class="fa-solid fa-user-doctor text-gold"></i>
+                تتوفر في العيادة طبيبة أسنان متخصصة
+            </p>
+        </div>
+    </div>
+
+    <!-- الواجهة الافتتاحية Premium -->
+    <section id="home" class="premium-hero">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full premium-grid">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.35fr_.65fr] gap-10 lg:gap-16 items-center">
+                <div class="text-white text-right">
+                    <span class="hero-eyebrow">
+                        <i class="fa-solid fa-sparkles"></i>
+                        رعاية متخصصة • عناية تستحقها
+                    </span>
+
+                    <h1 class="hero-title mt-6">
+                        ابتسامتك…<br>
+                        <span class="accent">تستحق عناية استثنائية</span>
+                    </h1>
+
+                    <p class="text-xl md:text-2xl font-bold text-white/90 mt-5">
+                        عيادة الدكتور محمد غالب الخليدي
+                    </p>
+                    <p class="hero-subtitle mt-3">
+                        لطب وجراحة الفم وتجميل الأسنان — خدمات علاجية وتجميلية متكاملة
+                        في بيئة مريحة، مع اهتمام بالتشخيص الدقيق وجودة الرعاية.
+                    </p>
+
+                    <div class="hero-actions flex flex-wrap gap-3 mt-8">
+                        <a href="javascript:openBooking()"
+                           class="bg-secondary hover:bg-teal-500 text-white px-9 py-4 rounded-full font-black text-lg shadow-2xl flex items-center justify-center gap-3 transition hover:-translate-y-1">
+                            احجز موعدك الآن
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </a>
+                        <a href="tel:770398384"
+                           class="bg-white/10 hover:bg-white/20 border border-white/25 text-white px-8 py-4 rounded-full font-black text-lg backdrop-blur-sm flex items-center justify-center gap-3 transition">
+                            <i class="fa-solid fa-phone text-gold"></i>
+                            770 398 384
+                        </a>
+                    </div>
+
+                    <div class="hero-trust">
+                        <span><i class="fa-solid fa-shield-heart text-secondary"></i> بيئة آمنة</span>
+                        <span><i class="fa-solid fa-tooth text-gold"></i> خدمات متكاملة</span>
+                        <span><i class="fa-solid fa-user-doctor text-secondary"></i> فريق طبي</span>
+                    </div>
+                </div>
+
+                <div class="hero-side-card text-right">
+                    <div class="hero-logo-wrap">
+                        <img src="1000223172.png" alt="شعار عيادة الدكتور محمد غالب الخليدي">
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <p class="text-gold font-black text-sm">نرحب بكم</p>
+                        <h2 class="text-white text-2xl font-black mt-1">موعدك يبدأ بخطوة</h2>
+                    </div>
+
+                    <div class="hero-info-row">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <p class="font-black">موقع العيادة</p>
+                            <p class="text-white/75 text-sm leading-7">تعز – بيرباشا، مدخل حارة الدار، جوار عيادة ومختبرات الدار</p>
+                        </div>
+                    </div>
+
+                    <div class="hero-info-row">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <div>
+                            <p class="font-black">الرعاية الطبية</p>
+                            <p class="text-white/75 text-sm leading-7">د. محمد غالب الخليدي<br>مع توفر طبيبة أسنان متخصصة</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 mt-4">
+                        <a href="javascript:openBooking()" class="hero-mini-btn bg-secondary text-white hover:bg-teal-500">
+                            <i class="fa-solid fa-calendar-check"></i> حجز موعد
+                        </a>
+                        <a href="https://wa.me/967770398384?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF"
+                           target="_blank" rel="noopener"
+                           class="hero-mini-btn bg-white text-primary hover:bg-gray-100">
+                            <i class="fa-brands fa-whatsapp text-green-600"></i> واتساب
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            اكتشف خدمات العيادة
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative"><div class="absolute -inset-4 bg-secondary/10 rounded-[2.5rem] rotate-2"></div><div class="relative bg-white rounded-[2.5rem] p-8 shadow-luxury border border-gray-100">
+                    <div class="flex items-center gap-5 mb-7"><div class="w-16 h-16 rounded-2xl bg-primary text-gold flex items-center justify-center text-3xl"><i class="fa-solid fa-user-doctor"></i></div><div><p class="text-secondary font-bold">رعاية سنية متكاملة</p><h3 class="text-2xl font-black text-primary">د. محمد غالب الخليدي</h3></div></div>
+                    <p class="text-gray-600 leading-8 font-medium">نقدم خدمات طب وجراحة الفم وتجميل الأسنان في بيئة آمنة ومعقمة، مع الاهتمام بالتشخيص الدقيق وراحة المريض وجودة الخامات المستخدمة.</p>
+                    <div class="grid grid-cols-2 gap-4 mt-8"><div class="rounded-2xl bg-light p-5 text-center"><i class="fa-solid fa-shield-heart text-secondary text-2xl mb-2"></i><p class="font-bold text-primary">بيئة آمنة</p></div><div class="rounded-2xl bg-light p-5 text-center"><i class="fa-solid fa-star text-gold text-2xl mb-2"></i><p class="font-bold text-primary">خامات عالية الجودة</p></div></div>
+                </div></div>
+                <div><span class="text-gold font-bold tracking-widest text-sm">لماذا نحن؟</span><h2 class="text-4xl md:text-5xl font-black text-primary mt-2 leading-tight">ابتسامة أجمل تبدأ برعاية صحيحة</h2><div class="w-24 h-1.5 bg-secondary mt-6 rounded-full"></div><p class="text-gray-600 text-lg leading-9 mt-7">نحرص على تقديم تجربة واضحة ومريحة للمريض من أول تواصل وحتى المتابعة، مع توفير خدمات علاجية وتجميلية متعددة تحت سقف واحد.</p><div class="mt-8 space-y-4"><div class="flex items-center gap-4"><span class="w-10 h-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center"><i class="fa-solid fa-check"></i></span><span class="font-bold text-gray-700">تخصصات وخدمات أسنان متنوعة</span></div><div class="flex items-center gap-4"><span class="w-10 h-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center"><i class="fa-solid fa-check"></i></span><span class="font-bold text-gray-700">اهتمام براحة المريض وتعقيم البيئة</span></div><div class="flex items-center gap-4"><span class="w-10 h-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center"><i class="fa-solid fa-check"></i></span><span class="font-bold text-gray-700">وجود طبيبة أسنان متخصصة</span></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section id="services" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-16">
+                <span class="text-gold font-bold tracking-widest text-sm uppercase">ماذا نقدم؟</span>
+                <h2 class="text-4xl md:text-5xl font-black text-primary mt-2">خدماتنا الطبية والتجميلية</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- الخدمة 1 -->
+                <div class="service-card bg-light rounded-3xl p-8 text-center shadow-sm border border-gray-100 relative overflow-hidden group">
+                    <div class="service-icon w-20 h-20 mx-auto bg-white rounded-2xl flex items-center justify-center text-primary text-4xl shadow-md mb-6 relative z-10">
+                        <i class="fa-solid fa-tooth"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">تراكيب خزفية وزريكون</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">أجود أنواع التركيبات الثابتة والمتحركة للحصول على أسنان قوية وابتسامة طبيعية.</p><div class="service-more mt-3 text-sm text-secondary font-bold">تقييم الحالة واختيار النوع المناسب حسب الاحتياج.</div>
+                </div>
+
+                <!-- الخدمة 2 -->
+                <div class="service-card bg-light rounded-3xl p-8 text-center shadow-sm border border-gray-100 relative overflow-hidden group">
+                    <div class="service-icon w-20 h-20 mx-auto bg-white rounded-2xl flex items-center justify-center text-primary text-4xl shadow-md mb-6 relative z-10">
+                        <i class="fa-solid fa-suitcase-medical"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">علاج الأسنان واللثة</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">علاج جذور الأسنان، علاج جذور الأسنان بأحدث الأساليب، علاج التهابات اللثة، والحشوات التجميلية المتطابقة مع لون السن.</p>
+                </div>
+
+                <!-- الخدمة 3 -->
+                <div class="service-card bg-light rounded-3xl p-8 text-center shadow-sm border border-gray-100 relative overflow-hidden group">
+                    <div class="service-icon w-20 h-20 mx-auto bg-white rounded-2xl flex items-center justify-center text-primary text-4xl shadow-md mb-6 relative z-10">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">تبييض الأسنان بالليزر</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">تبييض أسنان احترافي بإشراف طبي، مع اختيار التقنية المناسبة حسب حالة الأسنان واللثة.</p><div class="service-more mt-3 text-sm text-secondary font-bold">التقنية والنتيجة المتوقعة تحددان بعد تقييم الحالة.</div>
+                </div>
+
+                <!-- الخدمة 4 -->
+                <div class="service-card bg-light rounded-3xl p-8 text-center shadow-sm border border-gray-100 relative overflow-hidden group">
+                    <div class="service-icon w-20 h-20 mx-auto bg-white rounded-2xl flex items-center justify-center text-primary text-4xl shadow-md mb-6 relative z-10">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">تقويم الأسنان</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">تصحيح إطباق واصطفاف الأسنان باستخدام أنواع التقويم المناسبة للحالة.</p><div class="service-more mt-3 text-sm text-secondary font-bold">يشمل التقييم الأولي ووضع خطة متابعة.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- قسم الفريق -->
+    <section id="doctors" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-gold font-bold tracking-widest text-sm">فريق الرعاية</span>
+                <h2 class="text-4xl md:text-5xl font-black text-primary mt-2">خبرة واهتمام من أول زيارة</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto mt-6 rounded-full"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-6 leading-8">يضم المركز الدكتور محمد غالب الخليدي، مع توفر طبيبة أسنان متخصصة لخدمة المراجعين حسب الحاجة.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <article class="rounded-3xl border border-gray-100 shadow-luxury p-8 bg-light">
+                    <div class="w-24 h-24 rounded-3xl bg-primary text-gold flex items-center justify-center text-4xl mb-6">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <span class="text-secondary font-bold">طبيب الأسنان</span>
+                    <h3 class="text-3xl font-black text-primary mt-2">د. محمد غالب الخليدي</h3>
+                    <p class="text-gray-600 mt-4 leading-8">طب وجراحة الفم وتجميل الأسنان.</p>
+                    <a href="https://wa.me/967770398384?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF" target="_blank" rel="noopener" class="inline-flex mt-6 items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-bold hover:bg-secondary transition">
+                        احجز مع العيادة <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </article>
+                <article class="rounded-3xl border border-gray-100 shadow-luxury p-8 bg-light">
+                    <div class="w-24 h-24 rounded-3xl bg-secondary text-white flex items-center justify-center text-4xl mb-6">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <span class="text-secondary font-bold">طبيبة أسنان</span>
+                    <h3 class="text-3xl font-black text-primary mt-2">طبيبة أسنان متخصصة</h3>
+                    <p class="text-gray-600 mt-4 leading-8">متوفرة في العيادة لخدمة المراجعين ضمن المواعيد والخدمات المتاحة.</p>
+                    <a href="#contact" class="inline-flex mt-6 items-center gap-2 border-2 border-primary text-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition">
+                        الاستفسار عن المواعيد <i class="fa-solid fa-calendar-check"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المقالات (قابل للتعديل من قبل الطبيب) -->
+    <section id="articles" class="py-24 bg-light border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+                <div>
+                    <span class="text-gold font-bold tracking-widest text-sm uppercase">تثقيف صحي</span>
+                    <h2 class="text-4xl font-black text-primary mt-2">مقالات ونصائح طبية</h2>
+                </div>
+                
+                <!-- زر تفعيل وضع التعديل (خاص بالطبيب) -->
+                <button onclick="toggleDoctorEditMode()" id="doctor-edit-btn" class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-6 rounded-full transition-all flex items-center gap-3 shadow-sm">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span id="doctor-edit-text">تعديل المقالات (للطبيب)</span>
+                </button>
+            </div>
+
+            <!-- رسالة تنبيه تظهر عند التعديل -->
+            <div id="edit-alert" class="hidden bg-secondary/10 border-r-4 border-secondary p-4 mb-8 rounded-lg flex items-center justify-between">
+                <div class="flex items-center gap-3 text-secondary font-bold">
+                    <i class="fa-solid fa-circle-info text-xl"></i>
+                    <p>أنت الآن في وضع التعديل. يمكنك النقر على العناوين، النصوص، أو الصور لتغييرها.</p>
+                </div>
+                <button onclick="toggleDoctorEditMode()" class="bg-secondary text-white px-4 py-1.5 rounded-md text-sm font-bold shadow-md hover:bg-teal-700">حفظ وإنهاء</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- المقال الأول -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-luxury transition duration-300 flex flex-col border border-gray-100">
+                    <div class="h-56 relative overflow-hidden editable-image-wrapper group" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="صورة المقال" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <span class="text-secondary font-bold text-sm mb-3 editable-content">نصيحة الأسبوع</span>
+                        <h3 class="text-2xl font-bold text-primary mb-4 leading-snug editable-content">كيف تحافظ على أسنانك بعد التبييض؟</h3>
+                        <p class="text-gray-600 leading-relaxed font-medium editable-content flex-grow">
+                            للحفاظ على نتائج التبييض بالليزر لأطول فترة، يُنصح بتجنب المشروبات الملونة كالقهوة والشاي في الأيام الأولى، والالتزام بتفريش الأسنان بمعجون خاص.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- المقال الثاني -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-luxury transition duration-300 flex flex-col border border-gray-100">
+                    <div class="h-56 relative overflow-hidden editable-image-wrapper group" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1598256989800-fea5f95b5468?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="صورة المقال" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <span class="text-secondary font-bold text-sm mb-3 editable-content">صحة اللثة</span>
+                        <h3 class="text-2xl font-bold text-primary mb-4 leading-snug editable-content">نزيف اللثة: الأسباب وطرق العلاج</h3>
+                        <p class="text-gray-600 leading-relaxed font-medium editable-content flex-grow">
+                            نزيف اللثة أثناء تفريش الأسنان هو أولى علامات التهاب اللثة (Gingivitis). تراكم الجير هو السبب الرئيسي، وزيارة العيادة لتنظيف الجير هي الحل الأمثل.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- المقال الثالث -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-luxury transition duration-300 flex flex-col border border-gray-100">
+                    <div class="h-56 relative overflow-hidden editable-image-wrapper group" onclick="changeImage(this)">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="صورة المقال" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <span class="text-secondary font-bold text-sm mb-3 editable-content">تجميل</span>
+                        <h3 class="text-2xl font-bold text-primary mb-4 leading-snug editable-content">الفرق بين الفينير والزيركون</h3>
+                        <p class="text-gray-600 leading-relaxed font-medium editable-content flex-grow">
+                            يُستخدم الفينير (القشور الخزفية) لتجميل الأسنان الأمامية وتغيير لونها وشكلها، بينما يستخدم الزيركون لعمل تيجان كاملة تعوض الأسنان التالفة وتتحمل المضغ.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- معرض العيادة -->
+    <section id="gallery" class="py-24 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-gold font-bold tracking-widest text-sm">معرض العيادة</span>
+                <h2 class="text-4xl md:text-5xl font-black text-primary mt-2">بيئة عصرية واهتمام بالتفاصيل</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="before-after-card col-span-2 row-span-2 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=85" alt="داخل عيادة أسنان حديثة" loading="lazy" class="w-full h-full min-h-[340px] object-cover">
+                </div>
+                <div class="before-after-card shadow-md">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=85" alt="كرسي وتجهيزات عيادة الأسنان" loading="lazy" class="w-full h-full min-h-[165px] object-cover">
+                </div>
+                <div class="before-after-card shadow-md">
+                    <img src="https://images.unsplash.com/photo-1598256989800-fea5f95b5468?auto=format&fit=crop&w=800&q=85" alt="رعاية الأسنان" loading="lazy" class="w-full h-full min-h-[165px] object-cover">
+                </div>
+                <div class="before-after-card shadow-md">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=85" alt="معدات طب الأسنان" loading="lazy" class="w-full h-full min-h-[165px] object-cover">
+                </div>
+                <div class="before-after-card shadow-md">
+                    <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=800&q=85" alt="ابتسامة ورعاية أسنان" loading="lazy" class="w-full h-full min-h-[165px] object-cover">
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-6">الصور الحالية صور توضيحية ويمكن استبدالها بصور العيادة الحقيقية.</p>
+        </div>
+    </section>
+
+    <!-- آراء المراجعين -->
+    <section id="reviews" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-gold font-bold tracking-widest text-sm">تجربة المراجع</span>
+                <h2 class="text-4xl md:text-5xl font-black text-primary mt-2">مساحة مخصصة لآراء المرضى</h2>
+                <div class="w-24 h-1.5 bg-secondary mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="rounded-3xl bg-light p-7 border border-gray-100">
+                    <div class="review-stars text-gold mb-4">★★★★★</div>
+                    <p class="text-gray-600 leading-8">يمكن هنا إضافة تقييم حقيقي من Google أو من مرضى العيادة بعد جمع موافقتهم.</p>
+                    <p class="font-black text-primary mt-5">— تقييم مراجع</p>
+                </div>
+                <div class="rounded-3xl bg-light p-7 border border-gray-100">
+                    <div class="review-stars text-gold mb-4">★★★★★</div>
+                    <p class="text-gray-600 leading-8">قسم مخصص لعرض تجارب المرضى بشكل موثوق وواضح، دون نشر بيانات شخصية دون موافقة.</p>
+                    <p class="font-black text-primary mt-5">— تقييم مراجع</p>
+                </div>
+                <div class="rounded-3xl bg-light p-7 border border-gray-100">
+                    <div class="review-stars text-gold mb-4">★★★★★</div>
+                    <p class="text-gray-600 leading-8">يمكن ربط هذا القسم لاحقاً بصفحة Google Business أو إضافة تقييمات موثقة يدوياً.</p>
+                    <p class="font-black text-primary mt-5">— تقييم مراجع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل (Contact Info) -->
+    <section id="contact" class="py-24 bg-white relative overflow-hidden">
+        <!-- شكل زخرفي في الخلفية -->
+        <div class="absolute -right-40 top-20 w-96 h-96 bg-light rounded-full mix-blend-multiply opacity-50 z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-primary rounded-[3rem] overflow-hidden shadow-luxury flex flex-col lg:flex-row">
+                
+                <!-- تفاصيل التواصل -->
+                <div class="w-full lg:w-1/2 p-12 lg:p-20 text-white flex flex-col justify-center">
+                    <h2 class="text-4xl font-black mb-4">نسعد باستقبالكم</h2>
+                    <p class="text-gray-300 text-lg mb-12">لحجز موعد أو للاستفسار، لا تترددوا في التواصل معنا عبر الأرقام التالية أو زيارة العيادة.</p>
+                    
+                    <div class="space-y-8">
+                        <!-- العنوان -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-gold text-3xl flex-shrink-0 backdrop-blur-sm border border-white/5">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-gold mb-2">موقع العيادة</h4>
+                                <p class="text-white text-lg leading-relaxed font-medium opacity-90">
+                                    تعز – بيرباشا<br>
+                                    مدخل حارة الدار – جوار عيادة ومختبرات الدار<br>
+                                    (فوق منقذ المستهلك)
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- الأرقام -->
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-gold text-3xl flex-shrink-0 backdrop-blur-sm border border-white/5">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-gold mb-2">للتواصل والحجز</h4>
+                                <div class="flex flex-col gap-2">
+                                    <a href="tel:770398384" class="text-white text-2xl font-black tracking-widest hover:text-secondary transition inline-flex items-center gap-3" dir="ltr">
+                                        770 398 384 <i class="fa-brands fa-whatsapp text-green-400 text-xl"></i>
+                                    </a>
+                                    <a href="tel:730266573" class="text-white text-2xl font-black tracking-widest hover:text-secondary transition inline-flex items-center gap-3" dir="ltr">
+                                        730 266 573 <i class="fa-solid fa-phone text-gray-400 text-lg"></i>
+                                    </a>
+                                    <a href="https://wa.me/967770398384?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF" target="_blank" rel="noopener" class="mt-5 inline-flex items-center justify-center gap-3 bg-secondary text-white px-7 py-3 rounded-full font-black hover:bg-teal-500 transition">
+                                        احجز موعدك عبر واتساب <i class="fa-brands fa-whatsapp text-xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- صورة العيادة / الخريطة -->
+                <div class="w-full lg:w-1/2 min-h-[400px] relative">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="العيادة" class="absolute inset-0 w-full h-full object-cover">
+                    <!-- تدرج لدمج الصورة مع اللون الكحلي -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/50 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل (Footer) -->
+    <footer class="bg-dark pt-20 pb-10 border-t-[6px] border-gold text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- عمود 1: التعريف -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="1000223172.png" alt="الشعار" class="h-20 drop-shadow-lg bg-white/5 p-2 rounded-xl" onerror="this.style.display='none'">
+                        <div>
+                            <h3 class="text-white text-2xl font-bold">د. محمد الخليدي</h3>
+                            <p class="text-secondary text-sm">لطب وجراحة الفم وتجميل الأسنان</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed font-medium max-w-md mb-6">
+                        رؤيتنا هي تقديم أرقى مستويات الرعاية السنية والتجميلية في مدينة تعز، معتمدين على أحدث الأجهزة والمواد الطبية لضمان سلامة ورضا مرضانا.
+                    </p>
+                    <span class="inline-block border border-gold text-gold bg-gold/10 px-4 py-2 rounded-lg text-sm font-bold">
+                        👩🏻‍⚕️ متوفر طبيبة أسنان متخصصة
+                    </span>
+                </div>
+
+                <!-- عمود 2: روابط هامة -->
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6 relative inline-block pb-2 border-b-2 border-secondary">روابط سريعة</h4>
+                    <ul class="space-y-4 font-medium">
+                        <li><a href="#home" class="hover:text-gold transition"><i class="fa-solid fa-angle-left ml-2 text-secondary text-sm"></i>الرئيسية</a></li>
+                        <li><a href="#services" class="hover:text-gold transition"><i class="fa-solid fa-angle-left ml-2 text-secondary text-sm"></i>خدمات العيادة</a></li>
+                        <li><a href="#articles" class="hover:text-gold transition"><i class="fa-solid fa-angle-left ml-2 text-secondary text-sm"></i>المقالات الطبية</a></li>
+                        <li><a href="#gallery" class="hover:text-gold transition"><i class="fa-solid fa-angle-left ml-2 text-secondary text-sm"></i>معرض العيادة</a></li>
+                        <li><a href="#reviews" class="hover:text-gold transition"><i class="fa-solid fa-angle-left ml-2 text-secondary text-sm"></i>آراء المراجعين</a></li>
+                        <li><a href="#contact" class="hover:text-gold transition"><i class="fa-solid fa-angle-left ml-2 text-secondary text-sm"></i>احجز موعداً</a></li>
+                    </ul>
+                </div>
+
+                <!-- عمود 3: أوقات العمل -->
+                <div>
+                    <h4 class="text-white font-bold text-xl mb-6 relative inline-block pb-2 border-b-2 border-secondary">أوقات العمل</h4>
+                    <ul class="space-y-4 font-medium">
+                        <li class="flex justify-between border-b border-gray-800 pb-2">
+                            <span>السبت - الخميس</span>
+                            <span class="text-white">فترتين (صباحي ومسائي)</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-800 pb-2">
+                            <span>الجمعة</span>
+                            <span class="text-red-400">مغلق</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- حقوق النشر -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium">
+                <p>&copy; <span data-current-year>2026</span> عيادة الدكتور محمد غالب الخليدي. جميع الحقوق محفوظة.</p>
+                
+                <div class="flex gap-4">
+                    <a href="https://wa.me/967770398384" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-green-500 transition text-lg" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition text-lg" title="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:to-purple-600 transition text-lg" title="انستجرام"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="md:hidden fixed bottom-0 inset-x-0 z-[60] bg-white/95 backdrop-blur border-t border-gray-200 p-3" style="box-shadow:0 -8px 25px rgba(9,33,71,.12)"><div class="grid grid-cols-2 gap-3"><a href="tel:770398384" class="bg-primary text-white rounded-xl py-3 text-center font-black"><i class="fa-solid fa-phone ml-1"></i> اتصال</a><a href="https://wa.me/967770398384?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF" target="_blank" rel="noopener" class="bg-secondary text-white rounded-xl py-3 text-center font-black"><i class="fa-brands fa-whatsapp ml-1"></i> واتساب</a></div></div>
+
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="hidden fixed bottom-24 md:bottom-6 left-5 z-50 w-12 h-12 rounded-full bg-primary text-white shadow-xl hover:bg-secondary transition" aria-label="العودة للأعلى">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- زر واتساب عائم -->
+    <a href="https://wa.me/967770398384" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-[0_10px_20px_rgba(37,211,102,0.3)] hover:scale-110 transition-transform z-50 floating-element" title="تواصل معنا عبر واتساب الآن">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+    <!-- ========================================== -->
+    <!-- أكواد JavaScript المخصصة (بديل الملف المنفصل) -->
+    <!-- ========================================== -->
+    <script>
+        // 1. إدارة قائمة الجوال (Mobile Menu)
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileIcon = mobileBtn.querySelector('i');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // تغيير الأيقونة
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileIcon.className = "fa-solid fa-bars-staggered";
+            } else {
+                mobileIcon.className = "fa-solid fa-xmark";
+            }
+        });
+
+        // إخفاء القائمة عند النقر على أي رابط فيها
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileIcon.className = "fa-solid fa-bars-staggered";
+            });
+        });
+
+        // 2. تأثير شريط التنقل عند التمرير (Scroll Effect)
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md', 'bg-white/95');
+                navbar.classList.remove('bg-white', 'py-2');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // 3. نظام "وضع التعديل" للطبيب (Editable Mode)
+        let isEditing = false;
+        
+        function toggleDoctorEditMode() {
+            isEditing = !isEditing;
+            const body = document.body;
+            const btn = document.getElementById('doctor-edit-btn');
+            const btnText = document.getElementById('doctor-edit-text');
+            const alertBox = document.getElementById('edit-alert');
+            const editableElements = document.querySelectorAll('.editable-content');
+
+            if (isEditing) {
+                // تفعيل التعديل
+                body.classList.add('edit-mode');
+                alertBox.classList.remove('hidden');
+                btn.classList.add('bg-primary', 'text-white');
+                btn.classList.remove('bg-white', 'text-primary');
+                btnText.innerText = "إنهاء التعديل وحفظ (معاينة)";
+                
+                // جعل النصوص قابلة للكتابة
+                editableElements.forEach(el => {
+                    el.setAttribute('contenteditable', 'true');
+                });
+            } else {
+                // إيقاف التعديل
+                body.classList.remove('edit-mode');
+                alertBox.classList.add('hidden');
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-white', 'text-primary');
+                btnText.innerText = "تعديل المقالات (للطبيب)";
+                
+                // قفل النصوص
+                editableElements.forEach(el => {
+                    el.setAttribute('contenteditable', 'false');
+                });
+                
+                alert("تم إغلاق وضع التعديل. \n(ملاحظة: لحفظ هذه التعديلات فعلياً ليراها جميع الزوار، يتطلب الأمر ربط هذا الجزء بقاعدة بيانات برمجية - Backend).");
+            }
+        }
+
+        // 4. تغيير الصور أثناء وضع التعديل
+        function changeImage(element) {
+            if (!document.body.classList.contains('edit-mode')) return;
+            
+            const newImgUrl = prompt("أدخل الرابط الجديد للصورة (URL):", "https://...");
+            if (newImgUrl && newImgUrl.trim() !== "" && newImgUrl !== "https://...") {
+                const imgElement = element.querySelector('img');
+                if(imgElement) {
+                    imgElement.src = newImgUrl;
+                }
+            }
+        }
+
+        // ===== نظام الحجز الاحترافي =====
+        const bookingModal = document.getElementById('booking-modal');
+        function openBooking() {
+            if (!bookingModal) return;
+            bookingModal.classList.remove('hidden');
+            bookingModal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+            setTimeout(() => document.getElementById('booking-name')?.focus(), 80);
+        }
+        function closeBooking() {
+            if (!bookingModal) return;
+            bookingModal.classList.add('hidden');
+            bookingModal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        }
+        bookingModal?.addEventListener('click', (e) => {
+            if (e.target === bookingModal) closeBooking();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeBooking();
+        });
+
+        document.getElementById('booking-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('booking-name').value.trim();
+            const service = document.getElementById('booking-service').value;
+            const time = document.getElementById('booking-time').value.trim() || 'غير محدد';
+            const message = `مرحباً، أرغب بحجز موعد في عيادة الدكتور محمد غالب الخليدي.%0Aالاسم: ${encodeURIComponent(name)}%0Aالخدمة: ${encodeURIComponent(service)}%0Aالوقت المفضل: ${encodeURIComponent(time)}`;
+            window.open(`https://wa.me/967770398384?text=${message}`, '_blank', 'noopener');
+            closeBooking();
+        });
+
+        // إظهار/إخفاء زر الرجوع للأعلى
+        const topBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (!topBtn) return;
+            topBtn.classList.toggle('hidden', window.scrollY < 500);
+        }, {passive:true});
+
+        // عداد سنة الحقوق تلقائياً
+        document.querySelectorAll('[data-current-year]').forEach(el => {
+            el.textContent = new Date().getFullYear();
+        });
+
+    </script>
+</body>
+</html>
